@@ -17,6 +17,7 @@
 		65AE70D91BC9594500730A53 /* toughEnough.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65AE70D81BC9594500730A53 /* toughEnough.mp3 */; settings = {ASSET_TAGS = (); }; };
 		65AE70DB1BC9594900730A53 /* itsJustWrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65AE70DA1BC9594900730A53 /* itsJustWrong.mp3 */; settings = {ASSET_TAGS = (); }; };
 		65AE70DD1BC9594D00730A53 /* thatsNotMe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65AE70DC1BC9594D00730A53 /* thatsNotMe.mp3 */; settings = {ASSET_TAGS = (); }; };
+		65B926431BCDBA6300BE8F50 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B926421BCDBA6300BE8F50 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		65AE70D81BC9594500730A53 /* toughEnough.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = toughEnough.mp3; sourceTree = "<group>"; };
 		65AE70DA1BC9594900730A53 /* itsJustWrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = itsJustWrong.mp3; sourceTree = "<group>"; };
 		65AE70DC1BC9594D00730A53 /* thatsNotMe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thatsNotMe.mp3; sourceTree = "<group>"; };
+		65B926421BCDBA6300BE8F50 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				65AE70DC1BC9594D00730A53 /* thatsNotMe.mp3 */,
 				652341DF1BC92D1E0041D5AA /* LaunchScreen.storyboard */,
 				652341E21BC92D1E0041D5AA /* Info.plist */,
+				65B926421BCDBA6300BE8F50 /* Images.xcassets */,
 			);
 			path = EdMiliSound;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				652341E11BC92D1E0041D5AA /* LaunchScreen.storyboard in Resources */,
 				65AE70D71BC9562D00730A53 /* edbg.jpg in Resources */,
+				65B926431BCDBA6300BE8F50 /* Images.xcassets in Resources */,
 				65AE70D91BC9594500730A53 /* toughEnough.mp3 in Resources */,
 				652341DC1BC92D1E0041D5AA /* Main.storyboard in Resources */,
 				65AE70DB1BC9594900730A53 /* itsJustWrong.mp3 in Resources */,
