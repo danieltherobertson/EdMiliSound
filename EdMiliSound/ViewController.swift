@@ -24,6 +24,9 @@ class ViewController: UIViewController{
     var wrongButton2:UIButton!
     var toughButton2:UIButton!
     var notmeButton2:UIButton!
+    var wrongButton3:UIButton!
+    var toughButton3:UIButton!
+    var notmeButton3:UIButton!
     var background:UIImageView!
     
     var toughSound = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("toughEnough", ofType: "mp3")!)
@@ -32,13 +35,13 @@ class ViewController: UIViewController{
     var toughSound2 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("toughEnough", ofType: "mp3")!)
     var wrongSound2 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("itsJustWrong", ofType: "mp3")!)
     var notMeSound2 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("thatsNotMe", ofType: "mp3")!)
+    var toughSound3 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("toughEnough", ofType: "mp3")!)
+    var wrongSound3 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("itsJustWrong", ofType: "mp3")!)
+    var notMeSound3 = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("thatsNotMe", ofType: "mp3")!)
     
     var audioPlayerTough = AVAudioPlayer()
     var audioPlayerWrong = AVAudioPlayer()
     var audioPlayerNotMe = AVAudioPlayer()
-    var audioPlayerTough2 = AVAudioPlayer()
-    var audioPlayerWrong2 = AVAudioPlayer()
-    var audioPlayerNotMe2 = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +54,9 @@ class ViewController: UIViewController{
         
         self.view.addSubview(background)
         
-        scrollView = UIScrollView(frame: CGRectMake(0, screenHeight-135, screenWidth, 200))
+        scrollView = UIScrollView(frame: CGRectMake(0, screenHeight-150, screenWidth, 200))
         self.view.addSubview(scrollView)
-        scrollView.contentSize = CGSizeMake(screenWidth*2, 135);
+        scrollView.contentSize = CGSizeMake(screenWidth*3, 135);
         
         titleText = UILabel(frame:CGRectMake(30, 40, screenWidth-60, 60))
         titleText.text = "Pocket-Miliband"
@@ -63,7 +66,7 @@ class ViewController: UIViewController{
         
         self.view.addSubview(titleText)
         
-        wrongButton = UIButton(frame:CGRectMake(30, 0, screenWidth-60, 30))
+        wrongButton = UIButton(frame:CGRectMake(30, 0, screenWidth-60, 35))
         wrongButton.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         wrongButton.setTitle("It's Just Wrong", forState: UIControlState.Normal)
         wrongButton.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -73,7 +76,7 @@ class ViewController: UIViewController{
 
        scrollView.addSubview(wrongButton)
         
-        toughButton = UIButton(frame:CGRectMake(30, 45, screenWidth-60, 30))
+        toughButton = UIButton(frame:CGRectMake(30, 50, screenWidth-60, 35))
         toughButton.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         toughButton.setTitle("Tough Enough", forState: UIControlState.Normal)
         toughButton.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -83,7 +86,7 @@ class ViewController: UIViewController{
 
         scrollView.addSubview(toughButton)
         
-        notmeButton = UIButton(frame:CGRectMake(30, 90, screenWidth-60, 30))
+        notmeButton = UIButton(frame:CGRectMake(30, 100, screenWidth-60, 35))
         notmeButton.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         notmeButton.setTitle("That's Not Me", forState: UIControlState.Normal)
         notmeButton.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -93,7 +96,7 @@ class ViewController: UIViewController{
         
         scrollView.addSubview(notmeButton)
         
-        wrongButton2 = UIButton(frame:CGRectMake(screenWidth+30, 0, screenWidth-60, 30))
+        wrongButton2 = UIButton(frame:CGRectMake(screenWidth+30, 0, screenWidth-60, 35))
         wrongButton2.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         wrongButton2.setTitle("It's Just Wrong", forState: UIControlState.Normal)
         wrongButton2.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -103,7 +106,7 @@ class ViewController: UIViewController{
         
         scrollView.addSubview(wrongButton2)
         
-        toughButton2 = UIButton(frame:CGRectMake(screenWidth+30, 45, screenWidth-60, 30))
+        toughButton2 = UIButton(frame:CGRectMake(screenWidth+30, 50, screenWidth-60, 35))
         toughButton2.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         toughButton2.setTitle("Tough Enough", forState: UIControlState.Normal)
         toughButton2.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -113,7 +116,7 @@ class ViewController: UIViewController{
         
         scrollView.addSubview(toughButton2)
         
-        notmeButton2 = UIButton(frame:CGRectMake(screenWidth+30, 90, screenWidth-60, 30))
+        notmeButton2 = UIButton(frame:CGRectMake(screenWidth+30, 100, screenWidth-60, 35))
         notmeButton2.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
         notmeButton2.setTitle("That's Not Me", forState: UIControlState.Normal)
         notmeButton2.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -122,33 +125,58 @@ class ViewController: UIViewController{
         notmeButton2.layer.cornerRadius = notmeButton.frame.height/2
         
         scrollView.addSubview(notmeButton2)
-
         
+        wrongButton3 = UIButton(frame:CGRectMake(screenWidth*2+30, 0, screenWidth-60, 35))
+        wrongButton3.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
+        wrongButton3.setTitle("It's Just Wrong", forState: UIControlState.Normal)
+        wrongButton3.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
+        wrongButton3.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), forState: UIControlState.Normal)
+        wrongButton3.addTarget(self, action: "playSound:", forControlEvents: UIControlEvents.TouchUpInside)
+        wrongButton3.layer.cornerRadius = wrongButton.frame.height/2
+        
+        scrollView.addSubview(wrongButton3)
+        
+        toughButton3 = UIButton(frame:CGRectMake(screenWidth*2+30, 50, screenWidth-60, 35))
+        toughButton3.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
+        toughButton3.setTitle("Tough Enough", forState: UIControlState.Normal)
+        toughButton3.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
+        toughButton3.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), forState: UIControlState.Normal)
+        toughButton3.addTarget(self, action: "playSound:", forControlEvents: UIControlEvents.TouchUpInside)
+        toughButton3.layer.cornerRadius = toughButton.frame.height/2
+        
+        scrollView.addSubview(toughButton3)
+        
+        notmeButton3 = UIButton(frame:CGRectMake(screenWidth*2+30, 100, screenWidth-60, 35))
+        notmeButton3.backgroundColor = UIColor(red: 238/255, green: 38/255, blue: 34/255, alpha: 1.0)
+        notmeButton3.setTitle("That's Not Me", forState: UIControlState.Normal)
+        notmeButton3.titleLabel!.font = UIFont(name: "Avenir-Heavy", size: 16)
+        notmeButton3.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), forState: UIControlState.Normal)
+        notmeButton3.addTarget(self, action: "playSound:", forControlEvents: UIControlEvents.TouchUpInside)
+        notmeButton3.layer.cornerRadius = notmeButton.frame.height/2
+        
+        scrollView.addSubview(notmeButton3)
+
         audioPlayerTough = try! AVAudioPlayer(contentsOfURL: toughSound)
         audioPlayerWrong = try! AVAudioPlayer(contentsOfURL: wrongSound)
         audioPlayerNotMe = try! AVAudioPlayer(contentsOfURL: notMeSound)
-        audioPlayerTough2 = try! AVAudioPlayer(contentsOfURL: toughSound)
-        audioPlayerWrong2 = try! AVAudioPlayer(contentsOfURL: wrongSound)
-        audioPlayerNotMe2 = try! AVAudioPlayer(contentsOfURL: notMeSound)
-        // Do any additional setup after loading the view, typically from a nib.
      }
     
     func playSound(sender: UIButton!) {
         switch sender {
             
-            case wrongButton, wrongButton2:
+            case wrongButton, wrongButton2, wrongButton3:
                 audioPlayerWrong.play()
                 animateBtn(sender as UIButton)
                 
                 break
             
-            case toughButton, toughButton2:
+            case toughButton, toughButton2, toughButton3:
                 audioPlayerTough.play()
                 animateBtn(sender as UIButton)
                 
                 break
             
-            case notmeButton, notmeButton2:
+            case notmeButton, notmeButton2, notmeButton3:
                 audioPlayerNotMe.play()
                 animateBtn(sender as UIButton)
             
