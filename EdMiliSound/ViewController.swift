@@ -15,6 +15,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     let screenHeight = UIScreen.mainScreen().bounds.size.height
     
     var scrollView: UIScrollView!
+    var p1Container: UIView!
+    var p2Container: UIView!
+    var p3Container: UIView!
 
     var titleText: UILabel!
     
@@ -52,6 +55,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         scrollView = UIScrollView(frame: CGRectMake(0, screenHeight-175, screenWidth, 200))
         self.view.addSubview(scrollView)
         scrollView.contentSize = CGSizeMake(screenWidth*3, 135);
+        scrollView.pagingEnabled = true
+        
+        //Add buttons to UIViews
         
         titleText = UILabel(frame:CGRectMake(30, 40, screenWidth-60, 60))
         titleText.text = "Pocket-Miliband"
@@ -63,36 +69,45 @@ class ViewController: UIViewController, UIScrollViewDelegate{
        
         //PAGE 1 BUTTONS
         
+        p1Container = UIView(frame:CGRectMake(0, 0, screenWidth, 200))
+        scrollView.addSubview(p1Container)
+        
         wrongButton = layout("It's Just Wrong", xPos: 30, yPos: 25)
-        scrollView.addSubview(wrongButton)
+        p1Container.addSubview(wrongButton)
         
         toughButton = layout("Tough Enough", xPos: 30, yPos: 75)
-        scrollView.addSubview(toughButton)
+        p1Container.addSubview(toughButton)
         
         notMeButton = layout("That's Not Me", xPos: 30, yPos: 125)
-        scrollView.addSubview(notMeButton)
+        p1Container.addSubview(notMeButton)
         
         //PAGE 2 BUTTONS
         
-        wrongButton2 = layout("It's Just Wrong", xPos: screenWidth+30, yPos: 25)
-        scrollView.addSubview(wrongButton2)
+        p2Container = UIView(frame:CGRectMake(screenWidth, 0, screenWidth, 200))
+        scrollView.addSubview(p2Container)
         
-        toughButton2 = layout("Tough Enough", xPos: screenWidth+30, yPos: 75)
-        scrollView.addSubview(toughButton2)
+        wrongButton2 = layout("It's Just Wrong", xPos: 30, yPos: 25)
+        p2Container.addSubview(wrongButton2)
         
-        notMeButton2 = layout("That's Not Me", xPos: screenWidth+30, yPos: 125)
-        scrollView.addSubview(notMeButton2)
+        toughButton2 = layout("Tough Enough", xPos: 30, yPos: 75)
+        p2Container.addSubview(toughButton2)
+        
+        notMeButton2 = layout("That's Not Me", xPos: 30, yPos: 125)
+        p2Container.addSubview(notMeButton2)
         
         //PAGE 3 BUTTONS
         
-        wrongButton3 = layout("It's Just Wrong", xPos: screenWidth*2+30, yPos: 25)
-        scrollView.addSubview(wrongButton3)
+        p3Container = UIView(frame:CGRectMake(screenWidth*2, 0, screenWidth*2, 200))
+        scrollView.addSubview(p3Container)
         
-        toughButton3 = layout("Tough Enough", xPos: screenWidth*2+30, yPos: 75)
-        scrollView.addSubview(toughButton3)
+        wrongButton3 = layout("It's Just Wrong", xPos: 30, yPos: 25)
+        p3Container.addSubview(wrongButton3)
         
-        notMeButton3 = layout("That's Not Me", xPos: screenWidth*2+30, yPos: 125)
-        scrollView.addSubview(notMeButton3)
+        toughButton3 = layout("Tough Enough", xPos: 30, yPos: 75)
+        p3Container.addSubview(toughButton3)
+        
+        notMeButton3 = layout("That's Not Me", xPos: 30, yPos: 125)
+        p3Container.addSubview(notMeButton3)
 
 
         audioPlayerTough = try! AVAudioPlayer(contentsOfURL: toughSound)
@@ -113,13 +128,6 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     
         return button
     }
-    
-//    func scroll(){
-//     
-//        if scrollView.scrollEnabled {
-//            
-//        }
-//    }
     
     func playSound(sender: UIButton!) {
         switch sender {
