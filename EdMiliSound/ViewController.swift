@@ -54,8 +54,8 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         
         scrollView = UIScrollView(frame: CGRectMake(0, screenHeight-175, screenWidth, 200))
         self.view.addSubview(scrollView)
-        scrollView.contentSize = CGSizeMake(screenWidth*3, 135);
-        scrollView.pagingEnabled = true
+        scrollView.contentSize = CGSizeMake(screenWidth*3, 135)
+        scrollView.pagingEnabled = true //Enable scrollview snapping
         
         //Add buttons to UIViews
         
