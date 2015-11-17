@@ -1,3 +1,1 @@
 # EdMiliSound
-
-** A top meme **
